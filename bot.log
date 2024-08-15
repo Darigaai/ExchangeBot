@@ -1,0 +1,598 @@
+2024-08-14 16:03:47,276 - __main__ - INFO - Starting the application...
+2024-08-14 16:06:11,863 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2024-08-14 16:06:11,866 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1411, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 324, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1215, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 111, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 677, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 649, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 330, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+2024-08-14 16:06:55,043 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-14 16:06:55,044 - TeleBot - ERROR - Break infinity polling
+2024-08-14 16:07:04,376 - __main__ - INFO - Starting the application...
+2024-08-14 16:15:42,195 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2024-08-14 16:15:42,199 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1411, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 324, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1215, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 111, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 677, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 649, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 330, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+2024-08-14 16:21:25,614 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2024-08-14 16:21:25,620 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1411, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 324, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1215, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 111, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 677, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 649, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 330, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+2024-08-14 16:51:46,925 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-14 16:51:46,926 - TeleBot - ERROR - Break infinity polling
+2024-08-14 16:51:51,855 - __main__ - ERROR - An error occurred: create_user_tables() missing 1 required positional argument: 'users'
+2024-08-14 16:52:18,870 - __main__ - INFO - User table created successfully
+2024-08-14 16:52:18,870 - __main__ - INFO - Starting the application...
+2024-08-14 16:53:20,403 - __main__ - INFO - User 1137884787 inserted successfully
+2024-08-14 17:10:44,427 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-14 17:10:44,428 - TeleBot - ERROR - Break infinity polling
+2024-08-14 17:12:12,203 - __main__ - INFO - User table created successfully
+2024-08-14 17:12:12,204 - __main__ - INFO - Starting the application...
+2024-08-14 17:12:17,130 - __main__ - INFO - User 1137884787 inserted successfully
+2024-08-14 17:26:12,321 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2024-08-14 17:26:12,324 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1411, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 324, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1215, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 111, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 677, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 649, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 330, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+2024-08-14 17:29:03,944 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-14 17:29:03,944 - TeleBot - ERROR - Break infinity polling
+2024-08-14 17:29:05,972 - __main__ - INFO - User table created successfully
+2024-08-14 17:29:05,972 - __main__ - INFO - Starting the application...
+2024-08-14 17:39:53,023 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-14 17:39:53,024 - TeleBot - ERROR - Break infinity polling
+2024-08-14 17:39:54,694 - __main__ - INFO - User table created successfully
+2024-08-14 17:39:54,694 - __main__ - INFO - Starting the application...
+2024-08-14 17:44:13,631 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-14 17:44:13,632 - TeleBot - ERROR - Break infinity polling
+2024-08-14 17:44:15,351 - __main__ - INFO - User table created successfully
+2024-08-14 17:44:15,351 - __main__ - INFO - Starting the application...
+2024-08-15 17:13:27,641 - __main__ - INFO - User table created successfully
+2024-08-15 17:13:27,641 - __main__ - INFO - Starting the application...
+2024-08-15 17:17:21,572 - TeleBot - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2024-08-15 17:17:21,577 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+    response = conn.getresponse()
+               ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connection.py", line 464, in getresponse
+    httplib_response = super().getresponse()
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 1411, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 324, in begin
+    version, status, reason = self._read_status()
+                              ^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/http/client.py", line 285, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/socket.py", line 707, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1249, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/ssl.py", line 1105, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 538, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/urllib3/connectionpool.py", line 369, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1215, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 111, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 677, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 649, in get_updates
+    json_updates = apihelper.get_updates(
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 330, in get_updates
+    return _make_request(token, method_url, params=payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/apihelper.py", line 162, in _make_request
+    result = _get_req_session().request(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+2024-08-15 17:20:17,237 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-15 17:20:17,238 - TeleBot - ERROR - Break infinity polling
+2024-08-15 17:20:19,791 - __main__ - INFO - User table created successfully
+2024-08-15 17:20:19,792 - __main__ - INFO - Starting the application...
+2024-08-15 17:20:50,907 - TeleBot - ERROR - Infinity polling exception: invalid literal for int() with base 10: '6000\\'
+2024-08-15 17:20:50,909 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1216, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 8715, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/main.py", line 106, in base_currency_function
+    if int(rate) <= 0:
+       ^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '6000\\'
+
+2024-08-15 17:20:58,363 - TeleBot - ERROR - Infinity polling exception: name 'output' is not defined
+2024-08-15 17:20:58,365 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1216, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 8715, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/main.py", line 132, in base_currency_function
+    bot.send_message(message.chat.id, output)
+                                      ^^^^^^
+NameError: name 'output' is not defined
+
+2024-08-15 17:21:01,372 - TeleBot - ERROR - Infinity polling exception: name 'output' is not defined
+2024-08-15 17:21:01,379 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1216, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 8715, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/main.py", line 132, in base_currency_function
+    bot.send_message(message.chat.id, output)
+                                      ^^^^^^
+NameError: name 'output' is not defined
+
+2024-08-15 17:21:57,658 - TeleBot - ERROR - Infinity polling exception: name 'output' is not defined
+2024-08-15 17:21:57,662 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1216, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 8715, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/main.py", line 132, in base_currency_function
+    bot.send_message(message.chat.id, output)
+                                      ^^^^^^
+NameError: name 'output' is not defined
+
+2024-08-15 17:25:08,240 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-15 17:25:08,242 - TeleBot - ERROR - Break infinity polling
+2024-08-15 17:25:10,647 - __main__ - INFO - User table created successfully
+2024-08-15 17:25:10,647 - __main__ - INFO - Starting the application...
+2024-08-15 17:33:40,292 - TeleBot - ERROR - Infinity polling exception: invalid literal for int() with base 10: '234567890-'
+2024-08-15 17:33:40,294 - TeleBot - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1091, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1179, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1254, in __threaded_polling
+    raise e
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 1216, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 150, in raise_exceptions
+    raise self.exception_info
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/util.py", line 93, in run
+    task(*args, **kwargs)
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/venv/lib/python3.12/site-packages/telebot/__init__.py", line 8715, in _run_middlewares_and_handler
+    result = handler['function'](message)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/rozaaa/Champions/TelegramBot/ExchangeBot/main.py", line 106, in base_currency_function
+    if int(rate) <= 0:
+       ^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '234567890-'
+
+2024-08-15 17:34:23,654 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-15 17:34:23,655 - TeleBot - ERROR - Break infinity polling
+2024-08-15 17:34:25,928 - __main__ - INFO - User table created successfully
+2024-08-15 17:34:25,928 - __main__ - INFO - Starting the application...
+2024-08-15 17:38:56,264 - TeleBot - ERROR - Infinity polling: polling exited
+2024-08-15 17:38:56,266 - TeleBot - ERROR - Break infinity polling
